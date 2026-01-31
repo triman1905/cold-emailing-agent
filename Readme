@@ -1,1 +1,135 @@
+📧 Automated Cold Email Agent (n8n + Google Sheets + Gmail)
 
+This project is an end-to-end automated cold emailing system built using n8n, Google Sheets, and Gmail. It is designed to send personalized emails to multiple leads, track delivery status, and log results automatically—without manual intervention.
+
+🚀 Overview
+
+The workflow fetches lead data and email templates from Google Sheets, dynamically merges them, sends emails via Gmail, and logs the delivery status back into a Google Sheet. This makes it ideal for outreach campaigns, newsletters, hackathon invitations, or marketing emails.
+
+🧠 How the Workflow Works
+1. Workflow Trigger
+
+The workflow starts when “Test workflow” is clicked in n8n.
+
+This trigger can later be replaced with a Cron trigger for scheduled campaigns.
+
+2. Fetch Leads from Google Sheets
+
+Reads lead data (Name, Email, Status, Time) from Leads Sheet.
+
+Each row represents one recipient.
+
+3. Conditional Check (IF Node)
+
+Ensures only eligible leads (e.g., not already contacted or unread) are processed.
+
+Prevents duplicate or unnecessary emails.
+
+4. Loop Over Leads
+
+Iterates through each lead one-by-one.
+
+Ensures controlled and sequential email sending.
+
+5. Fetch Email Templates
+
+Reads email templates from a separate Google Sheet.
+
+Templates can be edited anytime without changing the workflow logic.
+
+6. Code Node (Dynamic Content)
+
+Formats and personalizes email content.
+
+Can insert variables like:
+
+Recipient name
+
+Custom subject lines
+
+Dynamic body text
+
+7. Merge & Edit Fields
+
+Combines lead data with the selected email template.
+
+Maps fields correctly for Gmail (To, Subject, Body).
+
+8. Send Email via Gmail
+
+Uses Gmail API to send emails automatically.
+
+Each email is sent individually for better tracking and reliability.
+
+9. Wait Node
+
+Adds a delay between emails.
+
+Helps avoid spam detection and rate limiting.
+
+10. Log Status in Google Sheets
+
+Updates the status (SENT / UNREAD) and timestamp.
+
+Creates a clear audit trail for email outreach.
+
+🔹 Leads Sheet
+Name	Email	Send Status	Time
+sujal	malhotrasujal98@gmail.com
+	SENT	18:40:43
+haneet	haneetkbatra@gmail.com
+	SENT	18:40:51
+	trimankaur1905@gmail.com
+	UNREAD	18:41:00
+🛠️ Tech Stack
+
+n8n – Workflow automation
+
+Google Sheets API – Lead & template management
+
+Gmail API – Email delivery
+
+JavaScript (Code Node) – Dynamic email personalization
+
+✨ Features
+
+✅ Fully automated email sending
+
+✅ Dynamic email templates
+
+✅ Personalized emails
+
+✅ Status tracking & timestamps
+
+✅ Easy Google Sheets integration
+
+✅ Scalable & reusable workflow
+
+🔮 Possible Enhancements
+
+Add Cron trigger for scheduled campaigns
+
+Integrate OpenAI for AI-written emails
+
+Add bounce/open tracking
+
+Export logs to a CRM
+
+Deploy n8n on Vercel / Docker / VPS
+
+📌 Use Cases
+
+Cold email outreach
+
+Hackathon sponsorship requests
+
+Newsletter campaigns
+
+College event promotions
+
+Startup marketing emails
+
+👩‍💻 Author
+
+Triman Kaur
+Web Developer | Automation & AI Enthusiast
